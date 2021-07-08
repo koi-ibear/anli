@@ -1,4 +1,4 @@
-# Matts notes:
+# notes:
 set up your PYTHONPATHS:
 ```
 source setup.sh
@@ -24,9 +24,15 @@ train small roberta model on ANLI data with 1 GPU
 sh script/example_scripts/train_roberta_small.sh
 ```
 
+train small roberta model on ANLI data on CPU
+```
+sh script/example_scripts/train_roberta_small_cpu.sh
+```
+
 
 <details>
   <summary>Original README</summary>
+
 # Adversarial NLI
 
 ## Paper

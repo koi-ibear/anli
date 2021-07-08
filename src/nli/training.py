@@ -166,17 +166,17 @@ registered_path = {
     'fever_dev': config.PRO_ROOT / "data/build/fever_nli/dev.jsonl",
     'fever_test': config.PRO_ROOT / "data/build/fever_nli/test.jsonl",
 
-    'anli_r1_train': config.PRO_ROOT / "data/anli_v1.0/R1/train.jsonl",
-    'anli_r1_dev': config.PRO_ROOT / "data/anli_v1.0/R1/dev.jsonl",
-    'anli_r1_test': config.PRO_ROOT / "data/anli_v1.0/R1/test.jsonl",
+    'anli_r1_train': config.PRO_ROOT / "data/build/anli/r1/train.jsonl",
+    'anli_r1_dev': config.PRO_ROOT / "data/build/anli/r1/dev.jsonl",
+    'anli_r1_test': config.PRO_ROOT / "data/build/anli/r1/test.jsonl",
 
-    'anli_r2_train': config.PRO_ROOT / "data/anli_v1.0/R2/train.jsonl",
-    'anli_r2_dev': config.PRO_ROOT / "data/anli_v1.0/R2/dev.jsonl",
-    'anli_r2_test': config.PRO_ROOT / "data/anli_v1.0/R2/test.jsonl",
+    'anli_r2_train': config.PRO_ROOT / "data/build/anli/r2/train.jsonl",
+    'anli_r2_dev': config.PRO_ROOT / "data/build/anli/r2/dev.jsonl",
+    'anli_r2_test': config.PRO_ROOT / "data/build/anli/r2/test.jsonl",
 
-    'anli_r3_train': config.PRO_ROOT / "data/anli_v1.0/R3/train.jsonl",
-    'anli_r3_dev': config.PRO_ROOT / "data/anli_v1.0/R3/dev.jsonl",
-    'anli_r3_test': config.PRO_ROOT / "data/anli_v1.0/R3/test.jsonl",
+    'anli_r3_train': config.PRO_ROOT / "data/build/anli/r3/train.jsonl",
+    'anli_r3_dev': config.PRO_ROOT / "data/build/anli/r3/dev.jsonl",
+    'anli_r3_test': config.PRO_ROOT / "data/build/anli/r3/test.jsonl",
 }
 
 nli_label2index = {
