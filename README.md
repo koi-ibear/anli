@@ -19,16 +19,17 @@ activate conda env:
 conda env create -f environment.yaml && conda activate cs7643-final-proj
 ```
 
-train small roberta model on ANLI data with 1 GPU
-```
-sh script/example_scripts/train_roberta_small.sh
-```
-
 train small roberta model on ANLI data on CPU
 ```
 sh script/example_scripts/train_roberta_small_cpu.sh
 ```
 
+GPU training:
+1) edit train_roberta_small_gpu.sh to set 'gpus_per_node' and 'num_nodes' flags
+2) train small roberta model on GPUs:
+```
+sh script/example_scripts/train_roberta_small.sh
+```
 
 <details>
   <summary>Original README</summary>
