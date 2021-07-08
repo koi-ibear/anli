@@ -448,9 +448,6 @@ def train(local_rank, args):
         )
 
     train_data_str = args.train_data
-    # = "anli_r1_train:none,anli_r2_train:none,anli_r3_train:none"
-    # which then tries to read from "data/build/anli/r1/train.jsonl"
-    # but we have "data/anli_v1.0/R1/train.jsonl "
     train_data_weights_str = args.train_weights
     eval_data_str = args.eval_data
 
@@ -469,8 +466,6 @@ def train(local_rank, args):
     eval_data_named_path = eval_data_str.split(',')
 
     for named_path in train_data_named_path:
-        # first loop: "anli_r1_train:none"
-        print(f'debug: {named_path}')
         ind = named_path.find(':')
         name = named_path[:ind]
         path = name[ind + 1:]

@@ -1,16 +1,32 @@
 # Matts notes:
-first download the ANLI data:
+set up your PYTHONPATHS:
+```
+source setup.sh
+```
+
+download the ANLI data:
 ```
 sh script/download_data.sh
 ```
 
-train small roberta model on ANLI data
+prep the data:
+```
+python src/dataset_tools/build_data.py
+```
+
+activate conda env:
+```
+conda env create -f environment.yaml && conda activate cs7643-final-proj
+```
+
+train small roberta model on ANLI data with 1 GPU
 ```
 sh script/example_scripts/train_roberta_small.sh
 ```
 
 
-
+<details>
+  <summary>Original README</summary>
 # Adversarial NLI
 
 ## Paper
@@ -174,3 +190,5 @@ We used following NLI resources in training the backend model of the adversarial
 
 ## License
 ANLI is licensed under Creative Commons-Non Commercial 4.0. See the LICENSE file for details.
+
+</details>

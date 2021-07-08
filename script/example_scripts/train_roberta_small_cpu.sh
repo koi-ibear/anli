@@ -19,7 +19,7 @@ python src/nli/training.py \
   --model_class_name "roberta-base" \
   -n 1 \
   -g 1 \
-  --single_gpu \
+  --cpu \
   -nr 0 \
   --max_length 156 \
   --gradient_accumulation_steps 4 \
