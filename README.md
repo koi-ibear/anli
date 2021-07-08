@@ -1,3 +1,16 @@
+# Matts notes:
+first download the ANLI data:
+```
+sh script/download_data.sh
+```
+
+train small roberta model on ANLI data
+```
+sh script/example_scripts/train_roberta_small.sh
+```
+
+
+
 # Adversarial NLI
 
 ## Paper
@@ -6,15 +19,15 @@
 ## Dataset
 Version 1.0 is available here: https://dl.fbaipublicfiles.com/anli/anli_v1.0.zip.
 ### Format
-The dataset files are all in JSONL format (one JSON per line). Below is one example (in JSON format) with self-explanatory fields.  
+The dataset files are all in JSONL format (one JSON per line). Below is one example (in JSON format) with self-explanatory fields.
 Note that each example (each line) in the files contains a `uid` field represents **a unique id** across all the examples in all there rounds of ANLI.
 ```
-{   
-    "uid": "8a91e1a2-9a32-4fd9-b1b6-bd2ee2287c8f", 
-    "premise": "Javier Torres (born May 14, 1988 in Artesia, California) is an undefeated Mexican American professional boxer in the Heavyweight division. 
-                Torres was the second rated U.S. amateur boxer in the Super Heavyweight division and a member of the Mexican Olympic team.", 
-    "hypothesis": "Javier was born in Mexico", 
-    "label": "c", 
+{
+    "uid": "8a91e1a2-9a32-4fd9-b1b6-bd2ee2287c8f",
+    "premise": "Javier Torres (born May 14, 1988 in Artesia, California) is an undefeated Mexican American professional boxer in the Heavyweight division.
+                Torres was the second rated U.S. amateur boxer in the Super Heavyweight division and a member of the Mexican Olympic team.",
+    "hypothesis": "Javier was born in Mexico",
+    "label": "c",
     "reason": "The paragraph states that Javier was born in the California, US."
 }
 ```
@@ -43,16 +56,16 @@ BERT Large | [Devlin et al., 2018](https://arxiv.org/abs/1810.04805) | 57.4 | 48
 To facilitate research in the field of NLI, we provide an easy-to-use codebase for NLI data preparation and modeling.
 The code is built upon [Transformers](https://huggingface.co/transformers/) with a special focus on NLI.
 
-We welcome researchers from various fields (linguistics, machine learning, cognitive science, psychology, etc.) to try NLI. 
+We welcome researchers from various fields (linguistics, machine learning, cognitive science, psychology, etc.) to try NLI.
 You can use the code to reproduce the results in our paper or even as a starting point for your research.
 
-Please read more in [**Start your NLI research**](mds/start_your_nli_research.md).  
+Please read more in [**Start your NLI research**](mds/start_your_nli_research.md).
 
-An important detail in our experiments is that we combine SNLI+MNLI+FEVER-NLI and up-sample different rounds of ANLI to train the models.  
+An important detail in our experiments is that we combine SNLI+MNLI+FEVER-NLI and up-sample different rounds of ANLI to train the models.
 **We highly recommend you refer to the above link for reproducing the results and training your models such that the results will be comparable to the ones on the leaderboard.**
 
 ## Pre-trained Models
-Pre-trained NLI models can be easily called through huggingface model hub.  
+Pre-trained NLI models can be easily called through huggingface model hub.
 
 Version information:
 ```
@@ -61,10 +74,10 @@ torch==1.7
 transformers==3.0.2 or later (tested: 3.0.2, 3.1.0, 4.0.0)
 ```
 
-Models: `RoBERTa`, `ALBert`, `BART`, `ELECTRA`, `XLNet`.  
+Models: `RoBERTa`, `ALBert`, `BART`, `ELECTRA`, `XLNet`.
 
-The training data is a combination of [`SNLI`](https://nlp.stanford.edu/projects/snli/), [`MNLI`](https://cims.nyu.edu/~sbowman/multinli/), [`FEVER-NLI`](https://github.com/easonnie/combine-FEVER-NSMN/blob/master/other_resources/nli_fever.md), [`ANLI (R1, R2, R3)`](https://github.com/facebookresearch/anli). Please also cite the datasets if you are using the pre-trained model.  
-  
+The training data is a combination of [`SNLI`](https://nlp.stanford.edu/projects/snli/), [`MNLI`](https://cims.nyu.edu/~sbowman/multinli/), [`FEVER-NLI`](https://github.com/easonnie/combine-FEVER-NSMN/blob/master/other_resources/nli_fever.md), [`ANLI (R1, R2, R3)`](https://github.com/facebookresearch/anli). Please also cite the datasets if you are using the pre-trained model.
+
 Please try the code snippet below.
 ```python
 from transformers import AutoTokenizer, AutoModelForSequenceClassification

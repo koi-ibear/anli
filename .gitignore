@@ -1,0 +1,6 @@
+
+*.jsonl
+data/multinli_1.0/.DS_Store
+data/*
+*pycache*
+trans_cache/*

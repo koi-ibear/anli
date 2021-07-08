@@ -166,17 +166,17 @@ registered_path = {
     'fever_dev': config.PRO_ROOT / "data/build/fever_nli/dev.jsonl",
     'fever_test': config.PRO_ROOT / "data/build/fever_nli/test.jsonl",
 
-    'anli_r1_train': config.PRO_ROOT / "data/build/anli/r1/train.jsonl",
-    'anli_r1_dev': config.PRO_ROOT / "data/build/anli/r1/dev.jsonl",
-    'anli_r1_test': config.PRO_ROOT / "data/build/anli/r1/test.jsonl",
+    'anli_r1_train': config.PRO_ROOT / "data/anli_v1.0/R1/train.jsonl",
+    'anli_r1_dev': config.PRO_ROOT / "data/anli_v1.0/R1/dev.jsonl",
+    'anli_r1_test': config.PRO_ROOT / "data/anli_v1.0/R1/test.jsonl",
 
-    'anli_r2_train': config.PRO_ROOT / "data/build/anli/r2/train.jsonl",
-    'anli_r2_dev': config.PRO_ROOT / "data/build/anli/r2/dev.jsonl",
-    'anli_r2_test': config.PRO_ROOT / "data/build/anli/r2/test.jsonl",
+    'anli_r2_train': config.PRO_ROOT / "data/anli_v1.0/R2/train.jsonl",
+    'anli_r2_dev': config.PRO_ROOT / "data/anli_v1.0/R2/dev.jsonl",
+    'anli_r2_test': config.PRO_ROOT / "data/anli_v1.0/R2/test.jsonl",
 
-    'anli_r3_train': config.PRO_ROOT / "data/build/anli/r3/train.jsonl",
-    'anli_r3_dev': config.PRO_ROOT / "data/build/anli/r3/dev.jsonl",
-    'anli_r3_test': config.PRO_ROOT / "data/build/anli/r3/test.jsonl",
+    'anli_r3_train': config.PRO_ROOT / "data/anli_v1.0/R3/train.jsonl",
+    'anli_r3_dev': config.PRO_ROOT / "data/anli_v1.0/R3/dev.jsonl",
+    'anli_r3_test': config.PRO_ROOT / "data/anli_v1.0/R3/test.jsonl",
 }
 
 nli_label2index = {
@@ -448,6 +448,9 @@ def train(local_rank, args):
         )
 
     train_data_str = args.train_data
+    # = "anli_r1_train:none,anli_r2_train:none,anli_r3_train:none"
+    # which then tries to read from "data/build/anli/r1/train.jsonl"
+    # but we have "data/anli_v1.0/R1/train.jsonl "
     train_data_weights_str = args.train_weights
     eval_data_str = args.eval_data
 
@@ -466,10 +469,12 @@ def train(local_rank, args):
     eval_data_named_path = eval_data_str.split(',')
 
     for named_path in train_data_named_path:
+        # first loop: "anli_r1_train:none"
+        print(f'debug: {named_path}')
         ind = named_path.find(':')
         name = named_path[:ind]
         path = name[ind + 1:]
-        if name in registered_path:
+        if name in registered_path: # breaks here
             d_list = common.load_jsonl(registered_path[name])
         else:
             d_list = common.load_jsonl(path)
